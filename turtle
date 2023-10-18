@@ -1,0 +1,34 @@
+# Підключи потрібні модулі
+from turtle import*
+from random import randint
+from time import*
+# Створити об'єкт "черепашка", встанови форму, колір, швидкість
+t = Turtle()
+t.color("limegreen")
+t.shape("turtle")
+t.speed(999)
+t.p=0
+# Визнач функцію-обробник, яка спрацьовує при натисканні мишкою на черепашку
+def rand_move(t):
+    t.penup()
+    new_x = randint( -100, 100 )
+    new_y = randint( -100, 100 )
+    t.goto( new_x, new_y )
+    t.pendown()
+def catch( x, y ) :
+    t.write( ' Та за шо!? ', font = ("Arial", 15, "bold"))
+    rand_move(t)
+    t.p+=1
+t.onclick( catch )
+# Об'єкт "черепашка" підписується на подію "клік"
+while t.p <= 5:
+    sleep(1)
+    rand_move(t)
+t.color("red")
+t.write ("Да, ти мощний чувак!", font = ("Arial", 20, "bold"))
+t.color("limegreen")
+# Черепашка в циклі чекає і переміщується у випадкове положення
+
+# Після успішної гри черепашка пише привітання і ховається
+
+exitonclick()
